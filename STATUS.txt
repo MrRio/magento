@@ -169,6 +169,9 @@ FIXED BUGS:
     Fixed fatal error in downloader
     Fixed command line installer
     Fixed fixed amount product taxes for products without discounts
+    Fixed hiding of flex uploader after removing row of downloadbale sample|link
+    Fixed FPT editing for bundle products
+    Fixed generatting filenames for create custom extensions interface in Windows
 
 
 CHANGES:

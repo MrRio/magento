@@ -67,7 +67,10 @@
                 <td>
                     <input disabled="no-template" class="<?php echo $_htmlClass ?> required-entry validate-greater-than-zero" type="text" name="<?php echo $_htmlName ?>[__index__][price]" value="'#{price}'" />
                 </td>
-                <td class="last"><input type="hidden" name="<?php echo $_htmlName ?>[__index__][delete]" class="delete" disabled="no-template" value="" /><button title="Delete WEEE Tax" class="scalable delete icon-btn delete-product-option" onclick="weeeTaxControl.deleteItem('<?php echo $_htmlId ?>', event);return false"><span>Delete</span></button></td>
+                <td class="last">
+                    <input type="hidden" name="<?php echo $_htmlName ?>[__index__][delete]" class="delete" disabled="no-template" value=""  id="#{prefix}_weee_tax_row___index___delete" />
+                    <button title="Delete WEEE Tax" class="scalable delete icon-btn delete-product-option" onclick="weeeTaxControl.deleteItem('<?php echo $_htmlId ?>', event);return false"><span>Delete</span></button>
+                </td>
             </tr>
         </thead>
         <tfoot>
@@ -150,21 +153,29 @@
         },
 
         enableEditElements : function (prefix) {
-            // website, country, state, value
             nodes = $(prefix + '_container').childNodes;
             for (a=0;a<nodes.length;a++) {
                 tr = nodes[a];
-                Element.select(tr, ['input', 'select']).each(function(elem){elem.disabled=weeeEditorState[elem.id];});
-                Element.select(tr, '.delete').each(function(elem){elem.value=weeeEditorDeleted[elem.id];});
+                Element.select(tr, ['input', 'select']).each(function(elem){
+                    elem.disabled=weeeEditorState[elem.id];
+                    if (elem.id.indexOf('delete') != -1) {
+                        elem.value = ((typeof weeeEditorDeleted[elem.id] == undefined || !weeeEditorDeleted[elem.id]) ? 0 : 1);
+                    }
+                });
             }
         },
 
         disableEditElements : function (prefix) {
             nodes = $(prefix + '_container').childNodes;
-            for (a=0;a<nodes.length;a++) {
-                tr = nodes[a];
-                Element.select(tr, ['input', 'select']).each(function(elem){weeeEditorState[elem.id]=elem.disabled;elem.disabled=true;});
-                Element.select(tr, '.delete').each(function(elem){weeeEditorDeleted[elem.id] = elem.value;elem.value=1;});
+            for (b=0;b<nodes.length;b++) {
+                tr = nodes[b];
+                Element.select(tr, ['input', 'select']).each(function(elem){
+                    if (elem.id.indexOf('delete') != -1) {
+                        weeeEditorDeleted[elem.id]=(elem.value?elem.value:0);
+                        elem.value = 1;
+                    }
+                    weeeEditorState[elem.id]=elem.disabled;elem.disabled=true;
+                });
             }
         },
 

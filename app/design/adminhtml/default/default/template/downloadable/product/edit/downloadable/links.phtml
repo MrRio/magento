@@ -305,6 +305,9 @@ var linkItems = {
         alertAlreadyDisplayed = false;
         if(element){
             element.down('input[type="hidden"].__delete__').value = '1';
+            Element.select(element, 'div.flex').each(function(elm){
+                elm.remove();
+            });
             element.addClassName('no-display');
             element.addClassName('ignore-validate');
             element.hide();
