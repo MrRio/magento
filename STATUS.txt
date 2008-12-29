@@ -114,6 +114,7 @@ FIXED BUGS:
     #9738: Downloadable product + Tax Rules = error 404
     #9742: Notice on products sitemap
     #9743: Wrong count of related products, upsells and crosssells in admin
+    #9760: Free Shipping : 'For matching items only' incorrect works with USPS + FedEx method
 
     Fixed Bundle with custom options final price calculation
     Fixed CatalogSearch events
