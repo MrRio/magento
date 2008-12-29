@@ -175,6 +175,7 @@ FIXED BUGS:
     Fixed calling final step of dataflow import
     Fixed bundle js for calculating children with FPT
     Fixed grid to select products SKU in price rules in IE6/7
+    Fixed duplicate diplaying prices in bundle product price ranges
 
 
 CHANGES:
