@@ -167,6 +167,8 @@ FIXED BUGS:
     Fixed recreating new instances of Flex-Ajax bridges on hide/display flash objects
     Fixed category selection in URL-rewrites management form
     Fixed fatal error in downloader
+    Fixed command line installer
+    Fixed fixed amount product taxes for products without discounts
 
 
 CHANGES:

@@ -145,8 +145,11 @@ class Mage_Weee_Model_Tax extends Mage_Core_Model_Abstract
         if (!isset($this->_productDiscounts[$key])) {
             $this->_productDiscounts[$key] = (int) $this->getResource()->getProductDiscountPercent($product->getId(), $website, $group);
         }
-        $value = $this->_productDiscounts[$key];
-        return 100-min(100, max(0, $value));
+        if ($value = $this->_productDiscounts[$key]) {
+            return 100-min(100, max(0, $value));
+        } else {
+            return 0;
+        }
     }
 
     public function updateDiscountPercents()
