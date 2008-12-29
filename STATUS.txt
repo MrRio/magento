@@ -163,6 +163,8 @@ FIXED BUGS:
     Fixed js error in manage rules interface
     Fixed downlodable products admin interface in IE
     Updated Flex-Javascript bridge, fixed IE/Safari issues
+    Added applying frontend translation when sending emails from admin
+    Fixed recreating new instances of Flex-Ajax bridges on hide/display flash objects
 
 
 CHANGES:
@@ -206,12 +208,7 @@ CHANGES:
     Added support of allowed tags into Mage_Core_Helper_Abstract->htmlEscape() method
     Added unquoting autobinded quoted values in SQL adapter
     Added validation for selected, but not uploaded files
-
-
-KNOWN ISSUES:
-
-    Added applying frontend translation when sending emails from admin (not complete, to be refixed)
-    Fixed fatal error in downloader (not complete, to be refixed)
+    Fixed fatal error in downloader
 
 
 NOTES:

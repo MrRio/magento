@@ -611,7 +611,7 @@ class Mage_Core_Model_Locale
     {
         if ($locale = array_pop($this->_emulatedLocales)) {
             $this->_locale = $locale;
-            Mage::getSingleton('core/translate')->setLocale($this->_locale)->init('frontend', true);
+            Mage::getSingleton('core/translate')->setLocale($this->_locale)->init('adminhtml', true);
         }
     }
 

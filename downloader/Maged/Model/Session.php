@@ -30,12 +30,13 @@ class Maged_Model_Session extends Maged_Model
 
     public function start()
     {
-// TODO - fix it (is there a way to init Mage if application is installed without trigerring DB upgrades?)
-//        if (class_exists('Mage')) {
-//            $this->_session = Mage::getSingleton('admin/session');
-//        } else {
+        if (class_exists('Mage') && Mage::isInstalled()) {
+            // initialize Magento Config
+            Mage::app();
+            $this->_session = Mage::getSingleton('admin/session');
+        } else {
             session_start();
-//        }
+        }
         return $this;
     }
 

@@ -483,9 +483,16 @@ FABridge.extractBridgeFromID = function(id)
 
 FABridge.attachBridge = function(instance, bridgeName)
 {
-    var newBridgeInstance = new FABridge(instance, bridgeName);
 
-    FABridge[bridgeName] = newBridgeInstance;
+    // reuse bridge if it exists
+//    var newBridgeInstance = new FABridge(instance, bridgeName);
+
+    // reuse bridge if it exists
+//    FABridge[bridgeName] = newBridgeInstance;
+
+    if (typeof FABridge[bridgeName] == 'undefined') {
+        FABridge[bridgeName] = new FABridge(instance, bridgeName);
+    }
 
 /*  FABridge[bridgeName] = function() {
         return newBridgeInstance.root();
@@ -498,9 +505,12 @@ FABridge.attachBridge = function(instance, bridgeName)
     }
     for (var i = 0; i < callbacks.length; i++)
     {
-        callbacks[i].call(newBridgeInstance);
+//        callbacks[i].call(newBridgeInstance);
+        callbacks[i].call(FABridge[bridgeName]);
     }
-    delete FABridge.initCallbacks[bridgeName]
+    
+    // reuse bridge if it exists
+//    delete FABridge.initCallbacks[bridgeName]
 }
 
 // some methods can't be proxied.  You can use the explicit get,set, and call methods if necessary.
