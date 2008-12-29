@@ -165,6 +165,8 @@ FIXED BUGS:
     Updated Flex-Javascript bridge, fixed IE/Safari issues
     Added applying frontend translation when sending emails from admin
     Fixed recreating new instances of Flex-Ajax bridges on hide/display flash objects
+    Fixed category selection in URL-rewrites management form
+    Fixed fatal error in downloader
 
 
 CHANGES:
@@ -198,7 +200,7 @@ CHANGES:
     Added permanent redirect option for URL Rewrites
     Added ability to display custom child blocks on success page
     Added collecting results of non-asynchronous event handlers in adminhtml/events.js
-    Added confirmation dialog before switching from 'Images' tab in product edit form to prevent losing selected files
+    Added confirmation dialog before switching from 'Images' and 'Downloadable Information' tabs in product edit form to prevent losing selected files
     Added firing 'tabChangeBefore' event before switching tab in adminhtml/tabs.js (event handler can return 'cannotchange' to prevent switching)
     Rewritten URL Rewrite Management interface
     Added checking of file size before uploading
@@ -208,7 +210,6 @@ CHANGES:
     Added support of allowed tags into Mage_Core_Helper_Abstract->htmlEscape() method
     Added unquoting autobinded quoted values in SQL adapter
     Added validation for selected, but not uploaded files
-    Fixed fatal error in downloader
 
 
 NOTES:

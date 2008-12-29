@@ -137,10 +137,10 @@ Ext.onReady(function()
         useAjax         : true,
         addNodeTo       : false
     });
-    var root = new Ext.tree.TreeNode(config.children[0]);
+    var root = new Ext.tree.TreeNode(config);
     tree.setRootNode(root);
     tree.addListener('click', tree.categoryClick);
-    tree.loader.buildCategoryTree(root, config.children[0].children);
+    tree.loader.buildCategoryTree(root, config.children);
     tree.el.dom.innerHTML = '';
     tree.render();
 });

@@ -256,6 +256,9 @@ if(!window.Flex) {
                 $(this.getFileId(file)).addClassName('complete');
                 $(this.getFileId(file)).removeClassName('progress');
                 $(this.getFileId(file)).removeClassName('error');
+                if (this.config.replace_browse_with_remove) {
+                    this.flex.getBridge().hideRemoveButton();
+                }
                 progress.update(this.translate('Complete'));
             }
         },

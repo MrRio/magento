@@ -127,6 +127,9 @@ Downloadable.FileUploader.prototype = {
             this.key,
             new Flex.Uploader(this.idName, '<?php echo $this->getSkinUrl('media/uploaderSingle.swf') ?>', this.config)
         );
+        if (varienGlobalEvents) {
+            varienGlobalEvents.attachEventHandler('tabChangeBefore', Downloadable.getUploaderObj(type, key).onContainerHideBefore);
+        }
         new Downloadable.FileList(this.idName, Downloadable.getUploaderObj(type, key));
     }
 }
