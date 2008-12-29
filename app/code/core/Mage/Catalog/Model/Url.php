@@ -523,7 +523,7 @@ class Mage_Catalog_Model_Url
             if (!$product) {
                 return 'category/' . $category->getId();
             }
-            if ($category) {
+            if ($category && $category->getUrlPath()) {
                 return 'product/' . $product->getId() . '/' . $category->getId();
             }
             return 'product/' . $product->getId();
@@ -583,7 +583,7 @@ class Mage_Catalog_Model_Url
         if (!$product) {
             return 'catalog/category/view/id/' . $category->getId();
         }
-        if ($category) {
+        if ($category && $category->getUrlPath()) {
             return 'catalog/product/view/id/' . $product->getId() . '/category/' . $category->getId();
         }
         return 'catalog/product/view/id/' . $product->getId();
