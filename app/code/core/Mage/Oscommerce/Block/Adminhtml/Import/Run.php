@@ -136,6 +136,7 @@ function execImportData() {
             id: "updatedFinish"
         })});
         new Ajax.Request("' . $this->getUrl('*/*/batchFinish', array('id' => $importModel->getId())) .'", {
+            parameters: {form_key: \''.Mage::getSingleton('core/session')->getFormKey().'\'},
             onComplete: function() {
                 $(\'liFinished\').show();
             }
@@ -162,7 +163,7 @@ function sendImportData(data) {
     }
     countOfStartedProfiles++;
 
-
+    data.form_key = \''.Mage::getSingleton('core/session')->getFormKey().'\'
     new Ajax.Request("'.$this->getUrl('*/*/batchRun').'", {
       method: "post",
       parameters: data,

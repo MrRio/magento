@@ -210,7 +210,12 @@ class Mage_Protx_Model_Standard extends Mage_Payment_Model_Method_Abstract
         $queryPairs['ContactNumber'] = $billing->getTelephone();
         $queryPairs['ContactFax'] = $billing->getFax();
 
-        $queryPairs['VendorEMail'] = '';
+        if ($this->getConfig()->getVendorNotification()) {
+            $queryPairs['VendorEMail'] = $this->getConfig()->getVendorEmail();
+        } else {
+            $queryPairs['VendorEMail'] = '';
+        }
+
         $queryPairs['eMailMessage'] = '';
 
         $queryPairs['BillingAddress'] = $billing->format('oneline');

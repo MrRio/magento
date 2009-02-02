@@ -152,4 +152,28 @@ class Mage_Protx_Model_Config extends Varien_Object
     {
         return $this->getVendorPassword();
     }
+
+    /**
+     * Returns status of vendore notification
+     *
+     * @return bool
+     */
+    public function getVendorNotification()
+    {
+        return $this->getConfigData('vendor_notification');
+    }
+
+    /**
+     * Returns status of vendore email
+     *
+     * @return bool
+     */
+    public function getVendorEmail()
+    {
+        if ($email = $this->getConfigData('vendor_email')) {
+            return $email;
+        } else {
+            return Mage::getStoreConfig('trans_email/ident_general/email');
+        }
+    }
 }

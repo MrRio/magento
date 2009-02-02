@@ -131,7 +131,8 @@ class Mage_Ideal_Model_Advanced extends Mage_Payment_Model_Method_Abstract
         $request->setIssuerId($issuerId);
         $request->setPurchaseId($order->getIncrementId());
         $request->setEntranceCode(Mage::helper('ideal')->encrypt($order->getIncrementId()));
-        $request->setAmount($order->getBaseGrandTotal()*100);
+        //we need to be sure that we sending number without decimal part
+        $request->setAmount(floor($order->getBaseGrandTotal()*100));
         $response = $this->getApi()->processRequest($request, $this->getDebug());
         return $response;
     }

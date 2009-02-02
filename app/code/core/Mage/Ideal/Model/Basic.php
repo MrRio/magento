@@ -117,7 +117,7 @@ class Mage_Ideal_Model_Basic extends Mage_Payment_Model_Method_Abstract
         $fields = array(
             'merchantID' => $this->getConfigData('merchant_id'),
             'subID' => '0',
-            'amount' => $order->getBaseGrandTotal()*100,
+            'amount' => round($order->getBaseGrandTotal()*100),
             'purchaseID' => $order->getIncrementId(),
             'paymentType' => 'ideal',
             'validUntil' => date('Y-m-d\TH:i:s.000\Z', strtotime ('+1 week')) // plus 1 week
@@ -129,7 +129,7 @@ class Mage_Ideal_Model_Basic extends Mage_Payment_Model_Method_Abstract
                 "itemNumber".$i => $item->getSku(),
                 "itemDescription".$i => $item->getName(),
                 "itemQuantity".$i => $item->getQtyOrdered()*1,
-                "itemPrice".$i => $item->getBasePrice()*100
+                "itemPrice".$i => round($item->getBasePrice()*100)
             ));
             $i++;
         }
@@ -139,7 +139,7 @@ class Mage_Ideal_Model_Basic extends Mage_Payment_Model_Method_Abstract
                 "itemNumber".$i => $order->getShippingMethod(),
                 "itemDescription".$i => $order->getShippingDescription(),
                 "itemQuantity".$i => 1,
-                "itemPrice".$i => $order->getBaseShippingAmount()*100
+                "itemPrice".$i => round($order->getBaseShippingAmount()*100)
             ));
             $i++;
         }
@@ -149,7 +149,7 @@ class Mage_Ideal_Model_Basic extends Mage_Payment_Model_Method_Abstract
                 "itemNumber".$i => 'Tax',
                 "itemDescription".$i => '',
                 "itemQuantity".$i => 1,
-                "itemPrice".$i => $order->getBaseTaxAmount()*100
+                "itemPrice".$i => round($order->getBaseTaxAmount()*100)
             ));
             $i++;
         }
@@ -159,7 +159,7 @@ class Mage_Ideal_Model_Basic extends Mage_Payment_Model_Method_Abstract
                 "itemNumber".$i => 'Discount',
                 "itemDescription".$i => '',
                 "itemQuantity".$i => 1,
-                "itemPrice".$i => -$order->getBaseDiscountAmount()*100
+                "itemPrice".$i => -round($order->getBaseDiscountAmount()*100)
             ));
             $i++;
         }
