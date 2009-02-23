@@ -139,6 +139,8 @@ function execImportData() {
             parameters: {form_key: \''.Mage::getSingleton('core/session')->getFormKey().'\'},
             onComplete: function() {
                 $(\'liFinished\').show();
+                Element.toggle(window.opener.$(\'import_processing\'));
+                Element.toggle(window.opener.$(\'import_done\'));
             }
         });
     } else {

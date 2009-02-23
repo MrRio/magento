@@ -1559,19 +1559,27 @@ class Mage_Oscommerce_Model_Mysql4_Oscommerce extends Mage_Core_Model_Mysql4_Abs
         $storeName = $storeInfo['STORE_NAME'];
         $taxPairs = array();
         if ($classes = $this->getTaxClasses()) {
+            $existedClasses = $taxCollections = Mage::getResourceModel('tax/class_collection')
+                ->addFieldToFilter('class_type', 'PRODUCT')
+                ->load()
+                ->toOptionHash();
+
             foreach ($classes as $id => $name) {
                 $taxModel->unsData();
-                $taxModel->setId(null);
-                try {
+                $className = $name . '_' . $storeName;
+                if (in_array($className, $existedClasses)) {
+                    $taxId = array_search($className, $existedClasses);
+                } else {
+                    $taxModel->setId(null);
                     $taxModel->setClassType('PRODUCT');
                     $taxModel->setClassName($name . '_' . $storeName);
                     $taxModel->save();
-                    $taxPairs[$id] = $taxModel->getId();
-                } catch (Exception $e) {
-
+                    $taxId = $taxModel->getId();
                 }
+                $taxPairs[$id] = $taxId;
             }
         }
+
         if (sizeof($taxPairs) > 0) {
             $this->saveLogs($taxPairs, 'taxclass');
         }
@@ -2037,11 +2045,17 @@ class Mage_Oscommerce_Model_Mysql4_Oscommerce extends Mage_Core_Model_Mysql4_Abs
             if (is_array($data)) {
                 foreach($data as $field => $value) {
                     if (!in_array($field, $notIncludedFields)) {
-                        $data[$field] = @iconv($charset, self::DEFAULT_FIELD_CHARSET, $value);
+                        $newValue = @iconv($charset, self::DEFAULT_FIELD_CHARSET, $value);
+                        if (strlen($newValue)) {
+                            $data[$field] = $newValue;
+                        }
                     }
                 }
             } else {
-                $data = @iconv($charset, self::DEFAULT_MAGENTO_CHARSET, $data);
+                $newValue = @iconv($charset, self::DEFAULT_MAGENTO_CHARSET, $data);
+                if (strlen($newValue)) {
+                    $data = $newValue;
+                }
             }
         }
         return $data;
