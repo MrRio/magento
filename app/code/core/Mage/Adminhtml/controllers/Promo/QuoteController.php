@@ -77,6 +77,7 @@ class Mage_Adminhtml_Promo_QuoteController extends Mage_Adminhtml_Controller_Act
         if (!empty($data)) {
             $model->addData($data);
         }
+        
         $model->getConditions()->setJsFormObject('rule_conditions_fieldset');
         $model->getActions()->setJsFormObject('rule_actions_fieldset');
 
@@ -125,6 +126,15 @@ class Mage_Adminhtml_Promo_QuoteController extends Mage_Adminhtml_Controller_Act
             unset($data['rule']);
 
             $model->loadPost($data);
+            
+            // convert dates into Zend_Date and hope it will validate 'em
+            foreach (array('from_date', 'to_date') as $dateType) {
+                if ($date = $model->getData($dateType)) {
+                    $format = Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT);
+                    $model->setData($dateType, Mage::app()->getLocale()->date($date, $format, null, false));
+                }
+            }
+                       
 
             Mage::getSingleton('adminhtml/session')->setPageData($model->getData());
             try {

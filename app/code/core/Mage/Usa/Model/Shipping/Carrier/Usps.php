@@ -136,7 +136,7 @@ class Mage_Usa_Model_Shipping_Carrier_Usps
 
         $weight = $this->getTotalNumOfBoxes($request->getPackageWeight());
         $r->setWeightPounds(floor($weight));
-        $r->setWeightOunces(($weight-floor($weight))*16);
+        $r->setWeightOunces(round(($weight-floor($weight))*16, 1));
         if ($request->getFreeMethodWeight()!=$request->getPackageWeight()) {
             $r->setFreeMethodWeight($request->getFreeMethodWeight());
         }
@@ -165,7 +165,7 @@ class Mage_Usa_Model_Shipping_Carrier_Usps
 
         $weight = $this->getTotalNumOfBoxes($r->getFreeMethodWeight());
         $r->setWeightPounds(floor($weight));
-        $r->setWeightOunces(floor(($weight-floor($weight))*16));
+        $r->setWeightOunces(round(($weight-floor($weight))*16, 1));
         $r->setService($freeMethod);
     }
 
