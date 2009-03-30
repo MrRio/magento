@@ -173,7 +173,6 @@ Customer account pages, rendered for all tabs in dashboard
                 <action method="addLink" translate="label" module="customer"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action>
             </block>
             <action method="unsetChild"><name>tags_popular</name></action>
-            <block type="wishlist/customer_sidebar" name="wishlist_sidebar" as="wishlist" after="cart_sidebar" template="wishlist/sidebar.phtml"/>
         </reference>
         <reference name="left">
           <action method="unsetChild"><name>left.permanent.callout</name></action>

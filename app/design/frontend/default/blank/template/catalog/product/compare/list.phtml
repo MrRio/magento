@@ -31,18 +31,25 @@
 <?php $_total=$this->getItems()->getSize() ?>
 <?php if($_total): ?>
     <table class="data-table" id="product_comparison">
+    <?php $_i=0 ?>
+    <?php foreach($this->getItems() as $_item): ?>
+        <?php if($_i++%10==0): ?>
+            <col width="1" />
+        <?php endif; ?>
+            <col width="<?php echo floor(100/$_total); ?>%" />
+    <?php endforeach; ?>
 <?php if ($_total>2): ?>
-        <tbody>
+        <thead>
             <tr>
-                <?php $_i=0 ?>
-                <?php foreach($this->getItems() as $_item): ?>
+            <?php $_i=0 ?>
+            <?php foreach($this->getItems() as $_item): ?>
                 <?php if($_i++%10==0): ?>
                     <th>&nbsp;</th>
                 <?php endif; ?>
-                <td class="a-center"><a href="#" onclick="setLocation('<?php echo $this->helper('catalog/product_compare')->getRemoveUrl($_item) ?>');window.opener.location.reload();"><img src="<?php echo $this->getSkinUrl('images/list_remove_btn.gif') ?>" alt="<?php echo $this->__('Remove Product') ?>" title="<?php echo $this->__('Remove Product') ?>" /></a></td>
-                <?php endforeach; ?>
+                <td class="a-right"><a href="#" onclick="setLocation('<?php echo $this->helper('catalog/product_compare')->getRemoveUrl($_item) ?>') ;window.opener.location.reload();" title="<?php echo $this->__('Remove Product') ?>"><img src="<?php echo $this->getSkinUrl('images/list_remove_btn.gif') ?>" alt="<?php echo $this->__('Remove Product') ?>" /></a></td>
+            <?php endforeach; ?>
             </tr>
-        </tbody>
+        </thead>
 <?php endif ?>
         <tbody>
             <tr>
@@ -52,17 +59,17 @@
                     <th class="label">&nbsp;</th>
                 <?php endif; ?>
                 <td>
-                    <a class="product-image" href="#" onclick="setPLocation('<?php echo $_item->getProductUrl() ?>', true)" title="<?php echo $this->htmlEscape($_item->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'small_image')->resize(125, 125); ?>" width="125" height="125" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
+                    <a class="product-image" href="#" onclick="setPLocation('<?php echo $_item->getProductUrl() ?>', true)" title="<?php echo $this->htmlEscape($_item->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'small_image')->resize(125, 125); ?>" width="125" height="125" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
                     <h3 class="product-name"><a href="#" onclick="setPLocation('<?php echo $_item->getProductUrl() ?>', true)" title="<?php echo $this->htmlEscape($_item->getName()) ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></h3>
                     <?php echo $this->getReviewsSummaryHtml($_item, 'short') ?>
                     <?php echo $this->getPriceHtml($_item, true) ?>
                     <?php if($_item->isSaleable()): ?>
-                    <button class="button" onclick="setPLocation('<?php echo $this->helper('catalog/product_compare')->getAddToCartUrl($_item) ?>', true)"><span><?php echo $this->__('Add to Cart') ?></span></button>
+                        <p><button type="button" class="button" onclick="setPLocation('<?php echo $this->helper('catalog/product_compare')->getAddToCartUrl($_item) ?>', true)"><span><?php echo $this->__('Add to Cart') ?></span></button></p>
                     <?php else: ?>
-                    <p class="availability"><span class="out-of-stock"><?php echo $this->__('Out of stock') ?></span></p>
+                        <p class="availability"><span class="out-of-stock"><?php echo $this->__('Out of stock') ?></span></p>
                     <?php endif; ?>
                     <?php if ($this->helper('wishlist')->isAllow()) : ?>
-                    <p><a href="#" onclick="setPLocation('<?php echo $this->helper('catalog/product_compare')->getAddToWishlistUrl($_item) ?>', true)"><?php echo $this->__('Add to My Wishlist') ?></a></p>
+                        <p><a href="#" onclick="setPLocation('<?php echo $this->helper('catalog/product_compare')->getAddToWishlistUrl($_item) ?>', true)"><?php echo $this->__('Add to Wishlist') ?></a></p>
                     <?php endif; ?>
                 </td>
             <?php endforeach; ?>
@@ -74,7 +81,7 @@
                 <?php $_i=0 ?>
                 <?php foreach($this->getItems() as $_item): ?>
                 <?php if($_i++%10==0): ?>
-                <th class="label"><?php echo $this->__($_attribute->getFrontendLabel()) ?></th>
+                <th class="label"><span class="nobr"><?php echo $this->__($_attribute->getFrontendLabel()) ?></span></th>
                 <?php endif; ?>
                 <td>
                     <?php switch ($_attribute->getAttributeCode()) {
@@ -103,9 +110,9 @@
                 <td class="data">
                     <?php echo $this->getPriceHtml($_item) ?>
                     <?php if($_item->isSaleable()): ?>
-                        <button type="button" class="button" onclick="setPLocation('<?php echo $this->helper('catalog/product_compare')->getAddToCartUrl($_item) ?>', true)"><span><?php echo $this->__('Add to Cart') ?></span></button>
+                        <p><button type="button" class="button" onclick="setPLocation('<?php echo $this->helper('catalog/product_compare')->getAddToCartUrl($_item) ?>', true)"><span><?php echo $this->__('Add to Cart') ?></span></button></p>
                     <?php else: ?>
-                    <p class="availability"><span class="out-of-stock"><?php echo $this->__('Out of stock') ?></span></p>
+                        <p class="availability"><span class="out-of-stock"><?php echo $this->__('Out of stock') ?></span></p>
                     <?php endif; ?>
                     <?php if ($this->helper('wishlist')->isAllow()) : ?>
                         <p><a href="#" onclick="setPLocation('<?php echo $this->helper('catalog/product_compare')->getAddToWishlistUrl($_item) ?>', true)"><?php echo $this->__('Add to Wishlist') ?></a></p>

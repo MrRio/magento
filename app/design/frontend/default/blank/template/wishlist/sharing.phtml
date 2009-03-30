@@ -29,10 +29,10 @@
 </div>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <form action="<?php echo $this->getSendUrl() ?>" id="form-validate" method="post">
-<fieldset class="group-select">
+<fieldset>
     <?php echo $this->getBlockHtml('formkey')?>
     <h3><?php echo $this->__('Sharing Information') ?></h3>
-    <ul class="form-list">
+    <ul class="form-list group-select">
         <li>
             <label for="email_address"><?php echo $this->__('Email addresses, separated by commas') ?> <span class="required">*</span></label><br />
             <textarea name="emails" cols="60" rows="5" id="email_address" class="validate-emails required-entry"><?php echo $this->getEnteredData('emails') ?></textarea>

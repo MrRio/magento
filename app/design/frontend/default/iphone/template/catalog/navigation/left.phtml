@@ -24,15 +24,16 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<?php 
+<?php
 /**
  * Category left navigation
- * 
+ *
  * @see Mage_Catalog_Block_Navigation
  */
 ?>
 <?php $_categories=$this->getCurrentChildCategories() ?>
-<?php if($_categories->count()): ?>
+<?php $_count = is_array($_categories)?count($_categories):$_categories->count(); ?>
+<?php if($_count): ?>
 <div class="box layered-nav">
     <div class="head">
         <h3><?php echo $this->__('Browse By') ?></h3>

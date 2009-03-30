@@ -24,12 +24,12 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<?php 
+<?php
 /**
  * Bachup of bundle display on product view
  */
 ?>
-<?php 
+<?php
 /**
  * Product view template
  *
@@ -79,7 +79,7 @@
             <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
             <input type="hidden" name="related_product" id="related-products-field" value="" />
             </fieldset>
-            
+
             <?php if($_product->isBundle()): ?>
                 <div class="product-attributes">
                 <?php if($_product->isAvailableBundle()): ?>
@@ -156,7 +156,7 @@
                 <?php endif; ?>
             <?php else: ?>
                 <p><small><?php echo $this->__('Availability: In stock. Ships within 24 hours.') ?></small></p>
-                <button class="form-button" onclick="productAddToCartForm.submit()"><span><?php echo $this->__('Add to Cart') ?></span></button> <strong><?php echo $this->__('OR') ?></strong>
+                <button type="button" class="form-button" onclick="productAddToCartForm.submit()"><span><?php echo $this->__('Add to Cart') ?></span></button> <strong><?php echo $this->__('OR') ?></strong>
                 &nbsp;&nbsp;
                 <?php if ($this->helper('wishlist')->isAllow()) : ?>
                 <a href="<?php echo $this->getAddToWishlistUrl($_product) ?>"><?php echo $this->__('Add to Wishlist') ?></a>

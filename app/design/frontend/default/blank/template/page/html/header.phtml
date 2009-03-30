@@ -24,11 +24,13 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<div class="header">
-    <h1 id="logo" class="logo" title="<?php echo $this->getLogoAlt() ?>" style="background-image:url(<?php echo $this->getLogoSrc() ?>);"><a href="<?php echo $this->getUrl('') ?>"><?php echo $this->getLogoAlt() ?></a></h1>
-    <p class="welcome-msg"><?php echo $this->getWelcome()?></p>
-    <?php echo $this->getChildHtml('topLinks') ?>
-    <?php echo $this->getChildHtml('topSearch') ?>
-    <?php echo $this->getChildHtml('store_language') ?>
+<div class="header-container">
+    <div class="header">
+        <h1 id="logo" class="logo" title="<?php echo $this->getLogoAlt() ?>" style="background-image:url(<?php echo $this->getLogoSrc() ?>);"><a href="<?php echo $this->getUrl('') ?>"><?php echo $this->getLogoAlt() ?></a></h1>
+        <p class="welcome-msg"><?php echo $this->getWelcome()?></p>
+        <?php echo $this->getChildHtml('topLinks') ?>
+        <?php echo $this->getChildHtml('topSearch') ?>
+        <?php echo $this->getChildHtml('store_language') ?>
+    </div>
+    <?php echo $this->getChildHtml('topMenu') ?>
 </div>
-<?php echo $this->getChildHtml('topMenu') ?>

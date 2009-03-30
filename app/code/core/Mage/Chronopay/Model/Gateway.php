@@ -65,7 +65,7 @@ class Mage_Chronopay_Model_Gateway extends Mage_Payment_Model_Method_Cc
     /**
      *  Return ip address of customer
      *
-     *  @return	  void
+     *  @return	  string
      */
     protected function _getIp ()
     {
@@ -75,7 +75,7 @@ class Mage_Chronopay_Model_Gateway extends Mage_Payment_Model_Method_Cc
     /**
      *  Return shared secret key from config
      *
-     *  @return	  void
+     *  @return	  string
      */
     protected function _getSharedSecret ()
     {

@@ -163,6 +163,17 @@ class Mage_Rule_Model_Rule extends Mage_Core_Model_Abstract
                     }
                 }
             } else {
+                /**
+                 * convert dates into Zend_Date
+                 */
+                if (in_array($key, array('from_date', 'to_date')) && $value) {
+                    $value = Mage::app()->getLocale()->date(
+                        $value,
+                        Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT),
+                        null,
+                        false
+                    );
+                }
                 $this->setData($key, $value);
             }
         }

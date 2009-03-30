@@ -28,7 +28,7 @@
 /**
  * Last order sidebar
  *
- * @see Mage_Sale_Block_Reorder_Sidebar
+ * @see Mage_Sales_Block_Reorder_Sidebar
  */
 ?>
 
@@ -45,8 +45,8 @@
 <ol id="cart-sidebar-reorder">
 
      <?php $_showAddButtonFlag = false ?>
-     <?php foreach($_order->getItemsRandomCollection(5) as $_item): ?>
-     <?php if ($_item->getProduct()): ?>
+     <?php foreach ($this->getRandomItemCollection($_order) as $_item): ?>
+     <?php if ($this->getIsShowItem($_item)): ?>
         <li class="field-row">
 
             <div class="product-checkbox">
@@ -56,9 +56,7 @@
                 <?php endif; ?>
             </div>
             <div class="product-names">
-
-                <a href="<?php echo $_item->getProduct()->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a>
-
+                <a href="<?php echo $this->getItemProductUrl($_item) ?>"><?php echo $this->getItemProductName($_item) ?></a>
             </div>
         </li>
         <?php endif; ?>

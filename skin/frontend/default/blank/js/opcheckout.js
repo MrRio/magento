@@ -211,6 +211,9 @@ var Billing = Class.create();
 Billing.prototype = {
     initialize: function(form, addressUrl, saveUrl){
         this.form = form;
+        if ($(this.form)) {
+            $(this.form).observe('submit', function(event){this.save();Event.stop(event);}.bind(this));
+        }
         this.addressUrl = addressUrl;
         this.saveUrl = saveUrl;
         this.onAddressLoad = this.fillForm.bindAsEventListener(this);
@@ -349,6 +352,9 @@ var Shipping = Class.create();
 Shipping.prototype = {
     initialize: function(form, addressUrl, saveUrl, methodsUrl){
         this.form = form;
+        if ($(this.form)) {
+            $(this.form).observe('submit', function(event){this.save();Event.stop(event);}.bind(this));
+        }
         this.addressUrl = addressUrl;
         this.saveUrl = saveUrl;
         this.methodsUrl = methodsUrl;
@@ -509,6 +515,9 @@ var ShippingMethod = Class.create();
 ShippingMethod.prototype = {
     initialize: function(form, saveUrl){
         this.form = form;
+        if ($(this.form)) {
+            $(this.form).observe('submit', function(event){this.save();Event.stop(event);}.bind(this));
+        }
         this.saveUrl = saveUrl;
         this.validator = new Validation(this.form);
         this.onSave = this.nextStep.bindAsEventListener(this);
@@ -608,6 +617,9 @@ Payment.prototype = {
 
     init : function () {
         var elements = Form.getElements(this.form);
+        if ($(this.form)) {
+            $(this.form).observe('submit', function(event){this.save();Event.stop(event);}.bind(this));
+        }
         var method = null;
         for (var i=0; i<elements.length; i++) {
             if (elements[i].name=='payment[method]') {

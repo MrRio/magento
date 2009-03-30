@@ -76,7 +76,7 @@ Wishlist pages
             <block type="wishlist/customer_wishlist" name="customer.wishlist" template="wishlist/view.phtml"/>
         </reference>
         <reference name="left">
-            <action method="unsetChild"><name>wishlist_customer_sidebar</name></action>
+            <action method="unsetChild"><name>wishlist_sidebar</name></action>
         </reference>
     </wishlist_index_index>
 

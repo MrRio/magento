@@ -38,12 +38,12 @@
 <?php endif; ?>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <form action="<?php echo $this->getSaveUrl() ?>" method="post" id="form-validate">
-    <fieldset class="group-select">
+    <fieldset>
     <?php echo $this->getBlockHtml('formkey')?>
     <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
     <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
         <h3><?php echo $this->__('Contact Information') ?></h3>
-        <ul>
+        <ul class="form-list group-select">
             <li>
                 <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getAddress()->getFirstname() ? $this->getAddress() : $this->getCustomer())->toHtml() ?>
             </li>
@@ -63,18 +63,18 @@
             </li>
         </ul>
     </fieldset>
-    <fieldset class="group-select">
+    <fieldset>
         <h3><?php echo $this->__('Address') ?></h3>
-        <ul>
+        <ul class="form-list group-select">
             <li>
                 <label for="street_1"><?php echo $this->__('Street Address') ?> <span class="required">*</span></label><br />
                 <input type="text" name="street[]" value="<?php echo $this->htmlEscape($this->getAddress()->getStreet(1)) ?>" title="<?php echo $this->__('Street Address') ?>" id="street_1" class="input-text required-entry" />
             </li>
-<?php for ($_i=2, $_n=$this->helper('customer/address')->getStreetLines(); $_i<=$_n; $_i++): ?>
+        <?php for ($_i=2, $_n=$this->helper('customer/address')->getStreetLines(); $_i<=$_n; $_i++): ?>
             <li>
                 <input type="text" name="street[]" value="<?php echo $this->htmlEscape($this->getAddress()->getStreet($_i)) ?>" title="<?php echo $this->__('Street Address '.$_i) ?>" id="street_<?php echo $_i?>" class="input-text" />
             </li>
-<?php endfor ?>
+        <?php endfor ?>
             <li>
                 <div class="input-box">
                     <label for="city"><?php echo $this->__('City') ?> <span class="required">*</span></label><br />
@@ -130,6 +130,8 @@
     </div>
 </form>
 <script type="text/javascript">
+//<![CDATA[
     var dataForm = new VarienForm('form-validate', true);
     new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>);
+//]]>
 </script>

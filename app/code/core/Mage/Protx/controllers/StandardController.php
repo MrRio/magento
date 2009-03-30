@@ -94,8 +94,6 @@ class Mage_Protx_StandardController extends Mage_Core_Controller_Front_Action
 
     /**
      *  Success response from Protx
-     *
-     *  @return	  void
      */
     public function  successResponseAction()
     {
@@ -190,8 +188,6 @@ class Mage_Protx_StandardController extends Mage_Core_Controller_Front_Action
 
     /**
      *  Failure response from Protx
-     *
-     *  @return	  void
      */
     public function failureResponseAction ()
     {
@@ -245,8 +241,6 @@ class Mage_Protx_StandardController extends Mage_Core_Controller_Front_Action
 
     /**
      *  Expected GET HTTP Method
-     *
-     *  @return	  void
      */
     protected function preResponse ()
     {
@@ -268,8 +262,6 @@ class Mage_Protx_StandardController extends Mage_Core_Controller_Front_Action
 
     /**
      *  Failure Action
-     *
-     *  @return	  void
      */
     public function failureAction ()
     {

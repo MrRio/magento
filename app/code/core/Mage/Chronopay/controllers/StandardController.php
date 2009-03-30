@@ -52,7 +52,6 @@ class Mage_Chronopay_StandardController extends Mage_Core_Controller_Front_Actio
     /**
      *  Get order
      *
-     *  @param    none
      *  @return	  Mage_Sales_Model_Order
      */
     public function getOrder ()
@@ -98,8 +97,6 @@ class Mage_Chronopay_StandardController extends Mage_Core_Controller_Front_Actio
 
     /**
      *  Success response from Chronopay
-     *
-     *  @return	  void
      */
     public function  successAction()
     {
@@ -126,9 +123,6 @@ class Mage_Chronopay_StandardController extends Mage_Core_Controller_Front_Actio
 
     /**
      *  Notification Action from ChronoPay
-     *
-     *  @param    none
-     *  @return	  void
      */
     public function notifyAction ()
     {
@@ -198,8 +192,6 @@ class Mage_Chronopay_StandardController extends Mage_Core_Controller_Front_Actio
 
     /**
      *  Failure response from Chronopay
-     *
-     *  @return	  void
      */
     public function failureAction ()
     {

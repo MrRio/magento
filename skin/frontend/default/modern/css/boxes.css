@@ -327,7 +327,7 @@ h1#logo                 { float:left; }
 .toplinks-bar .top-links a            { padding:0 7px 0 0; background:url(../images/links_separator.gif) no-repeat 100% 50%; }
 .toplinks-bar .top-links .last a      { padding:0; background:none; }
 .search-bar             { padding:3px 12px 2px 12px; border-bottom:1px double #dedede; background:#efefef; margin-bottom:16px; line-height:1.25em; }
-.breadcrumbs            { float:left; }
+.breadcrumbs            { float:left; width:580px; overflow:hidden; }
 .breadcrumbs li         { display:inline; line-height:18px; }
 .breadcrumbs a,
 .breadcrumbs a:hover     { color:#7f7f7f; }
@@ -344,7 +344,8 @@ h1#logo                 { float:left; }
     }
 .mini-search .input-text { width:212px; margin-right:2px; }
 
-.search-autocomplete { border:1px solid #999; background:#f9f5f0; position:absolute; left:45px !important; top:22px !important; width:216px!important; }
+.search-autocomplete { position:absolute; /*left:45px !important; top:22px !important; width:216px!important;*/ }
+.search-autocomplete ul { border:1px solid #999; background:#f9f5f0; }
 .search-autocomplete li { border-bottom:1px solid #f4eee7; padding:2px 8px 1px 8px; }
 .search-autocomplete li .amount { float:right; font-weight:bold; }
 .search-autocomplete li.odd { background:#f6f6f6; }
@@ -641,11 +642,11 @@ a.minimal-price-link .price { font-weight:normal; color:#444; }
 
 
 /********************** Search */
-.advanced-search li label       { width:150px;float:left; }
-.advanced-search .input-text,
-.advanced-search textarea       { width:250px !important; }
-.advanced-search select         { width:258px !important; }
-.advanced-search .range .input-text { width:70px !important; }
+.advanced-search .group-select li label       { width:150px;float:left; }
+.advanced-search .group-select li input.input-text,
+.advanced-search .group-select li textarea       { width:250px; }
+.advanced-search .group-select li select         { width:258px; }
+.advanced-search .range input.input-text { width:70px !important; }
 .advanced-search .range select { width:90px; padding:1px; }
 .advanced-search-nothing-found {
     font-weight:bold;

@@ -24,7 +24,7 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<div class="page-head">
+<div class="page-title">
     <h2><?php echo $this->__('RSS Feeds') ?></h2>
 </div>
 <?php
@@ -34,15 +34,18 @@
 <?php if ($_categories || $_misc): ?>
 <?php if($_misc): ?>
 <table class="data-table" id="rss-table-misc">
+    <col />
+    <col width="1" />
     <thead>
         <tr>
-            <th><?php echo $this->__('Miscellaneous Feeds') ?></th>
+            <th colspan="2"><?php echo $this->__('Miscellaneous Feeds') ?></th>
         </tr>
     </thead>
     <tbody>
         <?php foreach ($_misc as $_feed): ?>
         <tr>
-            <td><?php echo $_feed->getLabel() ?> <a href="<?php echo $_feed->getUrl() ?>" class="link-rss"><?php echo $this->__('Get Feed'); ?></a></td>
+            <td><?php echo $_feed->getLabel() ?></td>
+            <td><a href="<?php echo $_feed->getUrl() ?>" class="link-rss"><?php echo $this->__('Get Feed'); ?></a></td>
         </tr>
         <?php endforeach; ?>
     </tbody>
@@ -53,15 +56,18 @@
 <?php endif ?>
 <?php if($_categories): ?>
 <table class="data-table" id="rss-table-category">
+    <col />
+    <col width="1" />
     <thead>
         <tr>
-            <th><?php echo $this->__('Category Feeds') ?></th>
+            <th colspan="2"><?php echo $this->__('Category Feeds') ?></th>
         </tr>
     </thead>
     <tbody>
         <?php foreach ($_categories as $_category): ?>
         <tr>
-            <td><?php echo $_category->getLabel() ?> <a href="<?php echo $_category->getUrl() ?>" class="link-rss"><?php echo $this->__('Get Feed'); ?></a></td>
+            <td><?php echo $_category->getLabel() ?></td>
+            <td><a href="<?php echo $_category->getUrl() ?>" class="link-rss"><?php echo $this->__('Get Feed'); ?></a></td>
         </tr>
         <?php endforeach; ?>
     </tbody>

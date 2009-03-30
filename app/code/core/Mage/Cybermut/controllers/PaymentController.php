@@ -29,7 +29,6 @@
  *
  * @category   Mage
  * @package    Mage_Cybermut
- * @name       Mage_Cybermut_PaymentController
  * @author	   Magento Core Team <core@magentocommerce.com>
  */
 class Mage_Cybermut_PaymentController extends Mage_Core_Controller_Front_Action
@@ -42,7 +41,6 @@ class Mage_Cybermut_PaymentController extends Mage_Core_Controller_Front_Action
     /**
      *  Get order
      *
-     *  @param    none
      *  @return	  Mage_Sales_Model_Order
      */
     public function getOrder()
@@ -89,8 +87,6 @@ class Mage_Cybermut_PaymentController extends Mage_Core_Controller_Front_Action
     /**
      *  Cybermut response router
      *
-     *  @param    none
-     *  @return	  void
      */
     public function notifyAction()
     {
@@ -159,9 +155,6 @@ class Mage_Cybermut_PaymentController extends Mage_Core_Controller_Front_Action
 
     /**
      *  Success payment page
-     *
-     *  @param    none
-     *  @return	  void
      */
     public function successAction()
     {
@@ -187,9 +180,6 @@ class Mage_Cybermut_PaymentController extends Mage_Core_Controller_Front_Action
 
     /**
      *  Failure payment page
-     *
-     *  @param    none
-     *  @return	  void
      */
     public function errorAction()
     {

@@ -46,7 +46,7 @@
                     <fields>
                         <user translate="label">
                             <label>User ID</label>
-                            <frontend_type>text</frontend_type>
+                            <frontend_type>obscure</frontend_type>
                             <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
                             <sort_order>1</sort_order>
                             <show_in_default>1</show_in_default>
@@ -55,7 +55,7 @@
                         </user>
                         <password translate="label">
                             <label>Password</label>
-                            <frontend_type>password</frontend_type>
+                            <frontend_type>obscure</frontend_type>
                             <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
                             <sort_order>2</sort_order>
                             <show_in_default>1</show_in_default>

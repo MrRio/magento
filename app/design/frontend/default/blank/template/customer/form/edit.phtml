@@ -29,10 +29,10 @@
 </div>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <form action="<?php echo $this->getUrl('customer/account/editPost') ?>" method="post" id="form-validate">
-<fieldset class="group-select">
+<fieldset>
     <?php echo $this->getBlockHtml('formkey')?>
     <h3><?php echo $this->__('Account Information') ?></h3>
-    <ul>
+    <ul class="form-list group-select">
         <li>
             <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getCustomer())->toHtml() ?>
         </li>
@@ -42,22 +42,22 @@
                 <input type="text" name="email" id="email" value="<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="input-text required-entry validate-email" />
             </div>
         </li>
-<?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
-<?php if ($_dob->isEnabled()): ?>
+    <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
+    <?php if ($_dob->isEnabled()): ?>
         <li><?php echo $_dob->setDate($this->getCustomer()->getDob())->toHtml() ?></li>
-<?php endif ?>
-<?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
-<?php if ($_taxvat->isEnabled()): ?>
+    <?php endif ?>
+    <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
+    <?php if ($_taxvat->isEnabled()): ?>
         <li><?php echo $_taxvat->setTaxvat($this->getCustomer()->getTaxvat())->toHtml() ?></li>
-<?php endif ?>
+    <?php endif ?>
         <li>
             <input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo $this->__('Change Password') ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> class="checkbox" /> <label for="change_password"><?php echo $this->__('Change Password') ?></label>
         </li>
     </ul>
 </fieldset>
-<fieldset class="group-select" style="display:none;">
+<fieldset style="display:none;">
     <h3><?php echo $this->__('Change Password') ?></h3>
-    <ul>
+    <ul class="form-list group-select">
         <li>
             <div class="input-box">
                 <label for="current_password"><?php echo $this->__('Current Password') ?></label><br />

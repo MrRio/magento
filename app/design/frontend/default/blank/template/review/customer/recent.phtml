@@ -30,9 +30,9 @@
     <h3><?php echo $this->__('My Recent Reviews') ?></h3>
     <a href="<?php echo $this->getAllReviewsUrl() ?>"><?php echo $this->__('View All Reviews') ?></a>
 </div>
+    <ol id="my_recent_reviews">
     <?php $iterator = 0 ?>
     <?php foreach ($this->getCollection() as $_review): ?>
-    <ol id="my_recent_reviews">
         <li>
             <span class="number"><?php echo ++$iterator ?></span>
             <h4 class="product-name"><a href="<?php echo $this->getReviewUrl($_review->getReviewId()) ?>"><?php echo $this->htmlEscape($_review->getName()) ?></a></h4>
@@ -43,8 +43,8 @@
             </div>    
             <?php endif; ?>
         </li>
+    <?php endforeach; ?>
     </ol>
     <script type="text/javascript">decorateList('my_recent_reviews');</script>
-    <?php endforeach; ?>
 </div>
 <?php endif; ?>

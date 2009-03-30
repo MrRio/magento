@@ -22,7 +22,6 @@
  */
  
 /* IE 6 only */
-.login-page .content { _height:150px; }
 .validation-advice { _height:13px; }
 .error-msg,
 .success-msg,
@@ -32,6 +31,7 @@
 
 /* Doubled Margin Fixes */
 .product-view .product-img-box .more-views li,
+.product-view .tags .form-add-tags .input-box,
 .sp-methods select.month { display:inline; }
 
 /********** < Navigation styles */
@@ -45,6 +45,10 @@
 
 input.radio { width:13px; height:13px; }
 input.checkbox { width:13px; height:13px; }
+button.button { background-position:0 0; }
+button.button span { background-position:100% 0; position:relative; }
+button.button,
+button.button span { height:21px; }
 
 /* Clearer */
 .clearer { display:block; clear:both; font-size:0; line-height:0; height:0; overflow:hidden; }
@@ -75,6 +79,7 @@ input.checkbox { width:13px; height:13px; }
 .add-to-cart,
 .product-essential,
 .product-view .product-img-box .more-views ul,
+.product-view .tags .form-add-tags,
 .product-options .options-list li,
 .product-options-bottom,
 .truncated,

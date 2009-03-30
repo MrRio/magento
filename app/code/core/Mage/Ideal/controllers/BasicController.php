@@ -18,11 +18,12 @@
  * versions in the future. If you wish to customize Magento for your
  * needs please refer to http://www.magentocommerce.com for more information.
  *
- * @category   Mage
- * @package    Mage_Ideal
- * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
- * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @category    Mage
+ * @package     Mage_Ideal
+ * @copyright   Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
+
 
 /**
  * iDEAL Basic Checkout Controller
@@ -31,13 +32,12 @@
  * @package     Mage_Ideal
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-
 class Mage_Ideal_BasicController extends Mage_Core_Controller_Front_Action
 {
+    
     /**
      *  Return order instance for last real order ID (stored in session)
      *
-     *  @param    none
      *  @return	  Mage_Sales_Model_Entity_Order object
      */
     protected function _getOrder ()
@@ -82,8 +82,6 @@ class Mage_Ideal_BasicController extends Mage_Core_Controller_Front_Action
 
     /**
      *  Success response from iDEAL
-     *
-     *  @return	  void
      */
     public function  successAction()
     {
@@ -114,8 +112,6 @@ class Mage_Ideal_BasicController extends Mage_Core_Controller_Front_Action
 
     /**
      *  Cancel response from iDEAL
-     *
-     *  @return	  void
      */
     public function cancelAction()
     {
@@ -147,8 +143,6 @@ class Mage_Ideal_BasicController extends Mage_Core_Controller_Front_Action
 
     /**
      *  Error response from iDEAL
-     *
-     *  @return	  void
      */
     public function failureAction ()
     {
@@ -249,4 +243,5 @@ class Mage_Ideal_BasicController extends Mage_Core_Controller_Front_Action
         }
         return false;
     }
+    
 }

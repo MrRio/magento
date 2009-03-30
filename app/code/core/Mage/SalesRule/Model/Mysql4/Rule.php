@@ -37,7 +37,7 @@ class Mage_SalesRule_Model_Mysql4_Rule extends Mage_Core_Model_Mysql4_Abstract
         if (!$object->getFromDate()) {
             $object->setFromDate(new Zend_Date(Mage::getModel('core/date')->gmtTimestamp()));
         }
-        if (!is_string( $object->getFromDate() )) {
+        if ($object->getFromDate() instanceof Zend_Date) {
             $object->setFromDate($object->getFromDate()->toString(Varien_Date::DATETIME_INTERNAL_FORMAT));
         }
 
@@ -45,7 +45,7 @@ class Mage_SalesRule_Model_Mysql4_Rule extends Mage_Core_Model_Mysql4_Abstract
             $object->setToDate(new Zend_Db_Expr('NULL'));
         }
         else {
-            if (!is_string( $object->getToDate() )) {
+            if ($object->getToDate() instanceof Zend_Date) {
                 $object->setToDate($object->getToDate()->toString(Varien_Date::DATETIME_INTERNAL_FORMAT));
             }
         }

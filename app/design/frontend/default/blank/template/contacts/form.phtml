@@ -29,9 +29,9 @@
     <h2><?php echo Mage::helper('contacts')->__('Contact Us') ?></h2>
 </div>
 <form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post">
-    <fieldset class="group-select">
+    <fieldset>
         <h3><?php echo Mage::helper('contacts')->__('Contact Information') ?></h3>
-        <ul>
+        <ul class="form-list group-select">
             <li>
                 <div class="input-box">
                     <label for="name"><?php echo Mage::helper('contacts')->__('Name') ?> <span class="required">*</span></label><br />
@@ -50,7 +50,7 @@
                 </div>
             </li>
             <li>
-                <label for="comment"><?php echo Mage::helper('contacts')->__('Comment') ?></label><br />
+                <label for="comment"><?php echo Mage::helper('contacts')->__('Comment') ?> <span class="required">*</span></label><br />
                 <textarea name="comment" id="comment" title="<?php echo Mage::helper('contacts')->__('Comment') ?>" class="required-entry input-text" style="height:150px;" cols="5" rows="3"></textarea>
             </li>
         </ul>

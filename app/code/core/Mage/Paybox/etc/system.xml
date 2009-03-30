@@ -74,7 +74,7 @@
                         </pbx_autoseule>
                         <pbx_site translate="label">
                             <label>Site number (TPE)</label>
-                            <frontend_type>text</frontend_type>
+                            <frontend_type>obscure</frontend_type>
                             <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
                             <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
@@ -83,7 +83,7 @@
                         </pbx_site>
                         <pbx_rang translate="label">
                             <label>Rank number</label>
-                            <frontend_type>text</frontend_type>
+                            <frontend_type>obscure</frontend_type>
                             <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
                             <sort_order>30</sort_order>
                             <show_in_default>1</show_in_default>
@@ -92,7 +92,7 @@
                         </pbx_rang>
                         <pbx_identifiant translate="label">
                             <label>PAYBOX identifier</label>
-                            <frontend_type>text</frontend_type>
+                            <frontend_type>obscure</frontend_type>
                             <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
                             <sort_order>40</sort_order>
                             <show_in_default>1</show_in_default>
@@ -340,7 +340,7 @@
                         </active>
                         <pbx_site translate="label">
                             <label>Site number (TPE)</label>
-                            <frontend_type>text</frontend_type>
+                            <frontend_type>obscure</frontend_type>
                             <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
                             <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
@@ -349,7 +349,7 @@
                         </pbx_site>
                         <pbx_rang translate="label">
                             <label>Rank number</label>
-                            <frontend_type>text</frontend_type>
+                            <frontend_type>obscure</frontend_type>
                             <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
                             <sort_order>30</sort_order>
                             <show_in_default>1</show_in_default>
@@ -358,7 +358,7 @@
                         </pbx_rang>
                         <pbx_cle translate="label">
                             <label>Activated Key</label>
-                            <frontend_type>text</frontend_type>
+                            <frontend_type>obscure</frontend_type>
                             <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
                             <sort_order>40</sort_order>
                             <show_in_default>1</show_in_default>

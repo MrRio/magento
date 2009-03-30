@@ -29,7 +29,7 @@
         <legend><?php echo $this->__('Newsletter') ?></legend>
         <label for="newsletter"><?php echo $this->__('Newsletter Sign-up') ?>:</label>
         <div class="input-box"> <!-- Created for the validation error accomodation -->
-            <input name="email" type="text" id="newsletter" value="Enter your email address" class="required-entry validate-email input-text" />
+            <input name="email" type="text" id="newsletter" value="<?php echo $this->__('Enter your email address') ?>" class="required-entry validate-email input-text" />
         </div>
         <input type="image" src="<?php echo $this->getSkinUrl('images/btn_submit_mini.gif') ?>" value="<?php echo $this->__('Sign me up') ?>"/>
 </fieldset>

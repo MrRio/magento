@@ -31,11 +31,11 @@
 </div>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <form action="<?php echo $action ?>" method="post" id="form-validate">
-    <fieldset class="group-select">
+    <fieldset>
     <input type="hidden" name="address_id" value="<?php echo $data->getAddressId() ?>" />
     <input type="hidden" name="customer_id" id="address_id" value="<?php echo $data->getCustomerId() ?>" />
         <h3><?php echo $this->__('Personal Information') ?></h3>
-        <ul>
+        <ul class="form-list group-select">
             <li>
                 <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($data)->toHtml() ?>
             </li>
@@ -47,18 +47,18 @@
             </li>
         </ul>
     </fieldset>
-    <fieldset class="group-select">
+    <fieldset>
         <h3><?php echo $this->__('Address') ?></h3>
-        <ul>
+        <ul class="form-list group-select">
             <li>
                 <label for="street_1"><?php echo $this->__('Street Address') ?> <span class="required">*</span></label><br />
                 <input type="text" name="street[]" value="<?php echo $this->htmlEscape($data->getStreet(1)) ?>" title="<?php echo $this->__('Street Address') ?>" id="street_1" class="input-text required-entry" />
             </li>
-<?php for ($_i=2, $_n=$this->helper('customer/address')->getStreetLines(); $_i<=$_n; $_i++): ?>
+        <?php for ($_i=2, $_n=$this->helper('customer/address')->getStreetLines(); $_i<=$_n; $_i++): ?>
             <li>
                 <input type="text" name="street[]" value="<?php echo $this->htmlEscape($data->getStreet($_i)) ?>" title="<?php echo $this->__('Street Address '.$_i) ?>" id="street_<?php echo $_i?>" class="input-text" />
             </li>
-<?php endfor ?>
+        <?php endfor ?>
             <li>
                 <div class="input-box">
                     <label for="city"><?php echo $this->__('City') ?> <span class="required">*</span></label><br />

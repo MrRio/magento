@@ -45,7 +45,7 @@
             <?php foreach ($_order->getItemsRandomCollection(5) as $_item): ?>
                 <?php if ($_item->getProduct() && is_null($_item->getParentItem())): ?>
                     <li>
-                        <?php if ($_item->getProduct()->getStockItem()->getIsInStock()): ?>
+                        <?php if ($this->getIsSalableItem($_item)): ?>
                             <?php $_showAddButtonFlag = true ?>
                             <input type="checkbox" name="order_items[]" id="reorder-item-<?php echo $_item->getId() ?>" value="<?php echo $_item->getId() ?>" class="checkbox validate-one-required-by-name" />
                             <script type="text/javascript">

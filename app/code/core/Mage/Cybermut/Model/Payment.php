@@ -60,7 +60,6 @@ class Mage_Cybermut_Model_Payment extends Mage_Payment_Model_Method_Abstract
     /**
      *  Return CyberMut protocol version
      *
-     *  @param    none
      *  @return	  string Protocol version
      */
     protected function getVersion()
@@ -205,7 +204,7 @@ class Mage_Cybermut_Model_Payment extends Mage_Payment_Model_Method_Abstract
     /**
      *  Prepare string for MAC generation
      *
-     *  @param    none
+     *  @param    array $data
      *  @return	  string MAC string
      */
     protected function _getMAC($data)
@@ -227,7 +226,6 @@ class Mage_Cybermut_Model_Payment extends Mage_Payment_Model_Method_Abstract
     /**
      *  Return SHA key
      *
-     *  @param    none
      *  @return	  string SHA key
      */
     protected function _getSHAKey()
@@ -238,7 +236,6 @@ class Mage_Cybermut_Model_Payment extends Mage_Payment_Model_Method_Abstract
     /**
      *  Return merchant key
      *
-     *  @param    none
      *  @return	  string Merchant key
      */
     protected function _getKey()
@@ -249,7 +246,7 @@ class Mage_Cybermut_Model_Payment extends Mage_Payment_Model_Method_Abstract
     /**
      *  Return MAC string for payment authentification
      *
-     *  @param    none
+     *  @param    string    $string
      *  @return	  string MAC
      */
     protected function _CMCIC_hmac($string)
@@ -270,7 +267,8 @@ class Mage_Cybermut_Model_Payment extends Mage_Payment_Model_Method_Abstract
     /**
      *  MAC generation algorithm
      *
-     *  @param    none
+     *  @param    string    $key
+     *  @param    string    $string
      *  @return	  string MAC
      */
     protected function _hmacSHA1($key, $string)
@@ -291,7 +289,7 @@ class Mage_Cybermut_Model_Payment extends Mage_Payment_Model_Method_Abstract
     /**
      *  Return MAC string on basis of Cybermut response data
      *
-     *  @param    none
+     *  @param    array $data
      *  @return	  string MAC
      */
     public function getResponseMAC($data)
@@ -312,7 +310,7 @@ class Mage_Cybermut_Model_Payment extends Mage_Payment_Model_Method_Abstract
     /**
      *  Transaction successful or not
      *
-     *  @param    none
+     *  @param    string    $returnCode
      *  @return	  boolean
      */
     public function isSuccessfulPayment($returnCode)
@@ -322,9 +320,6 @@ class Mage_Cybermut_Model_Payment extends Mage_Payment_Model_Method_Abstract
 
     /**
      *  Output success response and stop the script
-     *
-     *  @param    none
-     *  @return	  void
      */
     public function generateSuccessResponse()
     {
@@ -333,9 +328,6 @@ class Mage_Cybermut_Model_Payment extends Mage_Payment_Model_Method_Abstract
 
     /**
      *  Output failure response and stop the script
-     *
-     *  @param    none
-     *  @return	  void
      */
     public function generateErrorResponse()
     {
@@ -345,7 +337,6 @@ class Mage_Cybermut_Model_Payment extends Mage_Payment_Model_Method_Abstract
     /**
      *  Return response for Cybermut success payment
      *
-     *  @param    none
      *  @return	  string Success response string
      */
     public function getSuccessResponse()
@@ -362,7 +353,6 @@ class Mage_Cybermut_Model_Payment extends Mage_Payment_Model_Method_Abstract
     /**
      *  Return response for Cybermut failure payment
      *
-     *  @param    none
      *  @return	  string Failure response string
      */
     public function getErrorResponse()

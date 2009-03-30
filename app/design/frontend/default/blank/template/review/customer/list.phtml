@@ -40,7 +40,7 @@
                 <?php foreach ($this->getCollection() as $_review): ?>
                 <tr>
                     <td><?php echo $this->dateFormat($_review->getCreatedAt()) ?></td>
-                    <td><a href="<?php echo $this->getProductLink() ?>id/<?php echo $_review->getEntityPkValue() ?>"><?php echo $this->htmlEscape($_review->getName()) ?></a></td>
+                    <td><h3 class="product-name"><a href="<?php echo $this->getProductLink() ?>id/<?php echo $_review->getEntityPkValue() ?>"><?php echo $this->htmlEscape($_review->getName()) ?></a></h3></td>
                     <td>
                     <?php if($_review->getSum()): ?>
                         <div class="rating-box">
@@ -54,7 +54,7 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-<script type="text/javascript">decorateTable('my-reviews-table')</script>
+        <script type="text/javascript">decorateTable('my-reviews-table')</script>
     <?php echo $this->getToolbarHtml() ?>
 <?php else: ?>
     <p><?php echo $this->__('You have submitted no reviews.') ?></p>

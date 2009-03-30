@@ -55,7 +55,7 @@ For checkout/onepage/shipping.phtml:
         <?php if ($this->getPrefixOptions()===false): ?>
         <input type="text" id="<?php echo $this->getFieldId('prefix')?>" name="<?php echo $this->getFieldName('prefix')?>" value="<?php echo $this->htmlEscape($this->getObject()->getPrefix()) ?>" title="<?php echo $this->__('Prefix') ?>" class="input-text <?php if ($this->isPrefixRequired()):?> required-entry<?php endif; ?>" <?php echo $this->getFieldParams() ?> />
         <?php else: ?>
-        <select id="<?php echo $this->getFieldId('prefix')?>" name="<?php echo $this->getFieldName('prefix')?>" title="<?php echo $this->__('Prefix') ?>"<?php if ($this->isPrefixRequired()):?> class="required-entry"<?php endif; ?> <?php echo $this->getFieldParams() ?> />
+        <select id="<?php echo $this->getFieldId('prefix')?>" name="<?php echo $this->getFieldName('prefix')?>" title="<?php echo $this->__('Prefix') ?>"<?php if ($this->isPrefixRequired()):?> class="required-entry"<?php endif; ?> <?php echo $this->getFieldParams() ?>>
         <?php foreach ($this->getPrefixOptions() as $_option): ?>
             <option value="<?php echo $_option?>"<?php if ($this->getObject()->getPrefix()==$_option):?> selected="selected"<?php endif; ?>><?php echo $this->__($_option)?></option>
         <?php endforeach ?>
@@ -102,7 +102,7 @@ For checkout/onepage/shipping.phtml:
         <?php if ($this->getSuffixOptions()===false): ?>
         <input type="text" id="<?php echo $this->getFieldId('suffix')?>" name="<?php echo $this->getFieldName('suffix')?>" value="<?php echo $this->htmlEscape($this->getObject()->getSuffix()) ?>" title="<?php echo $this->__('Suffix') ?>" class="input-text<?php if ($this->isSuffixRequired()):?> required-entry<?php endif; ?>" <?php echo $this->getFieldParams() ?> />
         <?php else: ?>
-        <select id="<?php echo $this->getFieldId('suffix')?>" name="<?php echo $this->getFieldName('suffix')?>" title="<?php echo $this->__('Suffix') ?>"<?php if ($this->isSuffixRequired()):?> class="required-entry"<?php endif; ?> <?php echo $this->getFieldParams() ?> />
+        <select id="<?php echo $this->getFieldId('suffix')?>" name="<?php echo $this->getFieldName('suffix')?>" title="<?php echo $this->__('Suffix') ?>"<?php if ($this->isSuffixRequired()):?> class="required-entry"<?php endif; ?> <?php echo $this->getFieldParams() ?>>
         <?php foreach ($this->getSuffixOptions() as $_option): ?>
             <option value="<?php echo $_option?>"<?php if ($this->getObject()->getSuffix()==$_option):?> selected="selected"<?php endif; ?>><?php echo $this->__($_option)?></option>
         <?php endforeach ?>

@@ -31,47 +31,53 @@
  * @see Mage_Customer_Block_Form_Login
  */
 ?>
-<div class="page-title">
-    <h2><?php echo $this->__('Login or Create an Account') ?></h2>
+<div class="account-login">
+    <div class="page-title">
+        <h2><?php echo $this->__('Login or Create an Account') ?></h2>
+    </div>
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form">
+        <fieldset>
+            <legend><?php echo $this->__('Login or Create an Account') ?></legend>
+            <div class="col2-set">
+                <div class="col-1 new-users">
+                    <h3><?php echo $this->__('New Customers') ?></h3>
+                    <p><?php echo $this->__('By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.') ?></p>
+                </div>
+                <div class="col-2 registered-users">
+                    <h3><?php echo $this->__('Registered Customers') ?></h3>
+                    <p><?php echo $this->__('If you have an account with us, please log in.') ?></p>
+                    <ul class="form-list">
+                        <li>
+                            <label for="email"><?php echo $this->__('Email Address') ?> <span class="required">*</span></label><br />
+                            <input name="login[username]" value="<?php echo $this->htmlEscape($this->getUsername()) ?>" id="email" type="text" class="input-text required-entry" title="<?php echo $this->__('Email Address') ?>" />
+                        </li>
+                        <li>
+                            <label for="pass"><?php echo $this->__('Password') ?> <span class="required">*</span></label><br />
+                            <input name="login[password]" type="password" class="input-text required-entry validate-password" id="pass" title="<?php echo $this->__('Password') ?>" />
+                        </li>
+                    </ul>
+                    <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+                </div>
+            </div>
+            <div class="col2-set">
+                <div class="col-1">
+                    <div class="buttons-set">
+                        <button type="button" class="button" onclick="window.location='<?php echo $this->getCreateAccountUrl() ?>';"><span><?php echo $this->__('Create an Account') ?></span></button>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="buttons-set">
+                        <a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-left"><?php echo $this->__('Forgot Your Password?') ?></a>
+                        <button class="button" type="submit" name="send" id="send2"><span><?php echo $this->__('Login') ?></span></button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var dataForm = new VarienForm('login-form', true);
+    //]]>
+    </script>
 </div>
-<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-<form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form">
-    <fieldset class="col2-set login-page">
-        <legend>Login or Create an Account</legend>
-        <div class="col-1 new-users">
-            <div class="content">
-                <h3><?php echo $this->__('New Customers') ?></h3>
-                <p><?php echo $this->__('By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.') ?></p>
-            </div>
-            <div class="buttons-set">
-                <button type="button" class="button" onclick="window.location='<?php echo $this->getCreateAccountUrl() ?>';"><span><?php echo $this->__('Create an Account') ?></span></button>
-            </div>
-        </div>
-        <div class="col-2 registered-users">
-            <div class="content">
-                <h3><?php echo $this->__('Registered Customers') ?></h3>
-                <p><?php echo $this->__('If you have an account with us, please log in.') ?></p>
-                <ul class="form-list">
-                    <li>
-                        <label for="email"><?php echo $this->__('Email Address') ?> <span class="required">*</span></label><br />
-                        <input name="login[username]" value="<?php echo $this->htmlEscape($this->getUsername()) ?>" id="email" type="text" class="input-text required-entry" title="<?php echo $this->__('Email Address') ?>" />
-                    </li>
-                    <li>
-                        <label for="pass"><?php echo $this->__('Password') ?> <span class="required">*</span></label><br />
-                        <input name="login[password]" type="password" class="input-text required-entry validate-password" id="pass" title="<?php echo $this->__('Password') ?>" />
-                    </li>
-                </ul>
-                <p class="required"><?php echo $this->__('* Required Fields') ?></p>
-            </div>
-            <div class="buttons-set">
-                <a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-left"><?php echo $this->__('Forgot Your Password?') ?></a>
-                <button class="button" type="submit" name="send" id="send2"><span><?php echo $this->__('Login') ?></span></button>
-            </div>
-        </div>
-    </fieldset>
-</form>
-<script type="text/javascript">
-//<![CDATA[
-    var dataForm = new VarienForm('login-form', true);
-//]]>
-</script>

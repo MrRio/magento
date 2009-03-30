@@ -25,8 +25,8 @@
  */
 ?>
 <form id="co-billing-form" action="">
-<fieldset class="group-select">
-    <ul>
+<fieldset>
+    <ul class="form-list group-select">
     <?php if ($this->customerHasAddresses()): ?>
         <li>
             <label for="billing-address-select"><?php echo $this->__('Select a billing address from your address book or enter a new address.') ?></label><br />

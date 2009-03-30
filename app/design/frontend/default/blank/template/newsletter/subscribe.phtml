@@ -40,7 +40,9 @@
             <?php endif; ?>
             */ ?>
             <label for="newsletter"><?php echo $this->__('Sign up for our newsletter:') ?></label>
-            <input name="email" type="text" id="newsletter" class="input-text required-entry validate-email" />
+            <div class="input-box">
+               <input name="email" type="text" id="newsletter" class="input-text required-entry validate-email" />
+            </div>
             <button type="submit" class="button"><span><?php echo $this->__('Subscribe') ?></span></button>
         </fieldset>
     </form>

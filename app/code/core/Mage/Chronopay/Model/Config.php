@@ -56,7 +56,6 @@ class Mage_Chronopay_Model_Config extends Varien_Object
     /**
      *  Return Site ID registered in ChronoPay Admnin Panel
      *
-     *  @param    none
      *  @return	  string Site ID
      */
     public function getSiteId ()
@@ -67,7 +66,6 @@ class Mage_Chronopay_Model_Config extends Varien_Object
     /**
      *  Return Product ID (general type payments) registered in ChronoPay Admnin Panel
      *
-     *  @param    none
      *  @return	  string Product ID
      */
     public function getProductId ()
@@ -109,7 +107,6 @@ class Mage_Chronopay_Model_Config extends Varien_Object
     /**
      *  Return accepted currency
      *
-     *  @param    none
      *  @return	  string Currenc
      */
     public function getCurrency ()
@@ -120,7 +117,6 @@ class Mage_Chronopay_Model_Config extends Varien_Object
     /**
      *  Return client interface language
      *
-     *  @param    none
      *  @return	  string(2) Accepted language
      */
     public function getLanguage ()
