@@ -94,9 +94,9 @@ class Mage_GoogleAnalytics_Block_Ga extends Mage_Core_Block_Text
         $html .= 'pageTracker._addTrans(';
         $html .= '"' . $order->getIncrementId() . '",';
         $html .= '"' . $order->getAffiliation() . '",';
-        $html .= '"' . $order->getGrandTotal() . '",';
-        $html .= '"' . $order->getTaxAmount() . '",';
-        $html .= '"' . $order->getShippingAmount() . '",';
+        $html .= '"' . $order->getBaseGrandTotal() . '",';
+        $html .= '"' . $order->getBaseTaxAmount() . '",';
+        $html .= '"' . $order->getBaseShippingAmount() . '",';
         $html .= '"' . $address->getCity() . '",';
         $html .= '"' . $address->getRegion() . '",';
         $html .= '"' . $address->getCountry() . '"';
@@ -112,7 +112,7 @@ class Mage_GoogleAnalytics_Block_Ga extends Mage_Core_Block_Text
             $html .= '"' . $item->getSku() . '",';
             $html .= '"' . $item->getName() . '",';
             $html .= '"' . $item->getCategory() . '",';
-            $html .= '"' . $item->getPrice() . '",';
+            $html .= '"' . $item->getBasePrice() . '",';
             $html .= '"' . $item->getQtyOrdered() . '"';
             $html .= ');' . "\n";
         }

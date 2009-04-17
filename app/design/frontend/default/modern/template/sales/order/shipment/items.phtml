@@ -27,7 +27,7 @@
 <?php  $_order = $this->getOrder() ?>
 <?php  if ($_order->getTracksCollection()->count()) : ?>
 <div class="right">
-  <a href="#" id="linkId" onclick="popWin('<?php echo $this->helper('shipping')->getTrackingPopUpUrlByOrderId($_order->getId()) ?>',trackorder','width=800,height=600,resizable=yes,scrollbars=yes')" title="<?php echo $this->__('Track all shipment(s)') ?>"><?php echo $this->__('Track all shipments') ?></a>
+  <a href="#" id="linkId" onclick="popWin('<?php echo $this->helper('shipping')->getTrackingPopUpUrlByOrderId($_order->getId()) ?>','trackorder','width=800,height=600,resizable=yes,scrollbars=yes')" title="<?php echo $this->__('Track all shipment(s)') ?>"><?php echo $this->__('Track all shipments') ?></a>
 </div>
 <?php endif; ?>
 <p class="a-right"><a href="<?php echo $this->getPrintAllShipmentsUrl($_order) ?>" onclick="this.target='_blank'"><strong><?php echo $this->__('Print All Shipments') ?></strong></a></p>
