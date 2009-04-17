@@ -97,7 +97,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
     {
         $this->_initAction()
             ->_setActiveMenu('report/product/sold')
-            ->_addBreadcrumb(Mage::helper('reports')->__('Products Sold'), Mage::helper('reports')->__('Products Sold'))
+            ->_addBreadcrumb(Mage::helper('reports')->__('Products Ordered'), Mage::helper('reports')->__('Products Ordered'))
             ->_addContent($this->getLayout()->createBlock('adminhtml/report_product_sold'))
             ->renderLayout();
     }
@@ -108,7 +108,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
      */
     public function exportSoldCsvAction()
     {
-        $fileName   = 'products_sold.csv';
+        $fileName   = 'products_ordered.csv';
         $content    = $this->getLayout()
             ->createBlock('adminhtml/report_product_sold_grid')
             ->getCsv();
@@ -122,7 +122,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
      */
     public function exportSoldExcelAction()
     {
-        $fileName   = 'products_sold.xml';
+        $fileName   = 'products_ordered.xml';
         $content    = $this->getLayout()
             ->createBlock('adminhtml/report_product_sold_grid')
             ->getExcel($fileName);

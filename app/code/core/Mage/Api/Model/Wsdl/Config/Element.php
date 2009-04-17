@@ -173,13 +173,13 @@ class Mage_Api_Model_Wsdl_Config_Element extends Varien_Simplexml_Element
     {
         $children = array();
         $namespaces = $source->getNamespaces(true);
-        $children[''] = $source->children('');
         foreach ($namespaces as $key => $value) {
             if ($key == '' || $key == 'wsdl') {
                 continue;
             }
             $children[$value] = $source->children($value);
         }
+        $children[''] = $source->children('');
         return $children;
     }
 

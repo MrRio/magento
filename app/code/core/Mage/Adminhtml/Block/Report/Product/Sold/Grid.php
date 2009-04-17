@@ -76,14 +76,6 @@ class Mage_Adminhtml_Block_Report_Product_Sold_Grid extends Mage_Adminhtml_Block
             'index'     =>'name'
         ));
 
-        $this->addColumn('price', array(
-            'header'    =>Mage::helper('reports')->__('Price'),
-            'width'     =>'120px',
-            'type'      =>'currency',
-            'currency_code' => $this->getCurrentCurrencyCode(),
-            'index'     =>'price'
-        ));
-
         $this->addColumn('ordered_qty', array(
             'header'    =>Mage::helper('reports')->__('Quantity Ordered'),
             'width'     =>'120px',

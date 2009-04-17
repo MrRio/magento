@@ -749,6 +749,9 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
     public function getAvailableSortBy()
     {
         $available = $this->getData('available_sort_by');
+        if (empty($available)) {
+            return array();
+        }
         if ($available && !is_array($available)) {
             $available = split(',', $available);
         }
