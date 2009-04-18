@@ -177,11 +177,11 @@ final class Maged_Controller
     {
         if (!self::$_instance) {
             self::$_instance = new self;
-            if (!class_exists('Mage', false)) {
-                include_once self::$_instance->getMageFilename();
+            
+            if (self::$_instance->isDownloaded() && self::$_instance->isInstalled()) {
+                Mage::app();
+                Mage::getSingleton('adminhtml/url')->turnOffSecretKey();
             }
-            Mage::app();
-            Mage::getSingleton('adminhtml/url')->turnOffSecretKey();
         }
         return self::$_instance;
     }
