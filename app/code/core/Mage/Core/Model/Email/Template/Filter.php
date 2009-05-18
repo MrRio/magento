@@ -42,6 +42,13 @@ class Mage_Core_Model_Email_Template_Filter extends Varien_Filter_Template
     protected $_useAbsoluteLinks = false;
 
     /**
+     * Use session in URL flag
+     *
+     * @var bool
+     */
+    protected $_useSessionInUrl;
+
+    /**
      * Url Instance
      *
      * @var Mage_Core_Model_Url
@@ -57,6 +64,18 @@ class Mage_Core_Model_Email_Template_Filter extends Varien_Filter_Template
     public function setUseAbsoluteLinks($flag)
     {
         $this->_useAbsoluteLinks = $flag;
+        return $this;
+    }
+
+    /**
+     * Set Use session in URL flag
+     *
+     * @param bool $flag
+     * @return Mage_Core_Model_Email_Template_Filter
+     */
+    public function setUseSessionInUrl($flag)
+    {
+        $this->_useSessionInUrl = (bool)$flag;
         return $this;
     }
 
@@ -204,6 +223,10 @@ class Mage_Core_Model_Email_Template_Filter extends Varien_Filter_Template
             }
         }
         $params['_absolute'] = $this->_useAbsoluteLinks;
+
+        if ($this->_useSessionInUrl === false) {
+            $params['_nosid'] = true;
+        }
 
         if (isset($params['direct_url'])) {
             $path = '';
