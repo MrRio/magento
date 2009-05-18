@@ -36,7 +36,7 @@ if (!Mage::isInstalled()) {
 $_SERVER['SCRIPT_NAME'] = str_replace(basename(__FILE__), 'index.php', $_SERVER['SCRIPT_NAME']);
 $_SERVER['SCRIPT_FILENAME'] = str_replace(basename(__FILE__), 'index.php', $_SERVER['SCRIPT_FILENAME']);
 
-Mage::app('admin');
+Mage::app('admin')->setUseSessionInUrl(false);
 
 try {
     Mage::getConfig()->init()->loadEventObservers('crontab');

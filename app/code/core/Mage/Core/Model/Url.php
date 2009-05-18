@@ -112,7 +112,7 @@ class Mage_Core_Model_Url extends Varien_Object
      *
      * @var bool
      */
-    protected $_useSession = true;
+    protected $_useSession;
 
     protected function _construct()
     {
@@ -187,6 +187,9 @@ class Mage_Core_Model_Url extends Varien_Object
      */
     public function getUseSession()
     {
+        if (is_null($this->_useSession)) {
+            $this->_useSession = Mage::app()->getUseSessionInUrl();
+        }
         return $this->_useSession;
     }
 
