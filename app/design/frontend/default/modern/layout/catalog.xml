@@ -96,6 +96,7 @@ Category default layout
                         <action method="addPagerLimit" translate="label"><mode>grid</mode><limit>all</limit><label>All</label></action>
                         -->
                     </block>
+                    <action method="setColumnCount"><count>4</count></action>
                     <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
                 </block>
             </block>
@@ -131,6 +132,7 @@ Category layered navigation layout
                         <action method="addPagerLimit" translate="label"><mode>grid</mode><limit>all</limit><label>All</label></action>
                         -->
                     </block>
+                    <action method="setColumnCount"><count>4</count></action>
                     <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
                 </block>
             </block>

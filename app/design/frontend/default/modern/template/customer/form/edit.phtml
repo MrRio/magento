@@ -55,7 +55,7 @@
 <?php endif ?>
     </ul>
 </fieldset>
-<p><input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo $this->__('Change Password') ?>" <?php if($this->getcustomer()->getchangepassword()==1): ?>checked="checked" <?php endif; ?>/> <label for="change_password"><?php echo $this->__('Change Password') ?></label></p>
+<p><input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo $this->__('Change Password') ?>" <?php if($this->getCustomer()->getChangePassword()==1): ?>checked="checked" <?php endif; ?>/> <label for="change_password"><?php echo $this->__('Change Password') ?></label></p>
 <fieldset class="group-select" style="display:none">
     <br/>
     <div class="head-alt2">

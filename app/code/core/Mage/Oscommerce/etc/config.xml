@@ -120,10 +120,10 @@
                 <children>
                     <convert>
                         <children>
-                            <osc translate="title" module="oscommerce">
+                            <oscimport translate="title" module="oscommerce">
                                 <title>osCommerce</title>
                                 <action>oscommerce/adminhtml_import</action>
-                            </osc>
+                            </oscimport>
                         </children>
                     </convert>
                 </children>

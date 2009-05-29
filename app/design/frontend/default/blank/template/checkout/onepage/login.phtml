@@ -95,6 +95,13 @@
                 loginForm.submit();
             }
         }
+        function onepageLogin(button)
+        {
+            if(loginForm.validator && loginForm.validator.validate()){
+                button.disabled = true;
+                loginForm.submit();
+            }
+        }
     //]]>
     </script>
 </div>
@@ -107,7 +114,7 @@
     <div class="col-2">
         <div class="buttons-set">
             <a href="<?php echo $this->getUrl('customer/account/forgotpassword') ?>" class="f-left"><?php echo $this->__('Forgot your password?') ?></a>
-            <button type="submit" class="button" onclick="loginForm.submit()"><span><?php echo $this->__('Login') ?></span></button>
+            <button type="submit" class="button" onclick="onepageLogin(this)"><span><?php echo $this->__('Login') ?></span></button>
         </div>
     </div>
 </div>

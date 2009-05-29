@@ -127,6 +127,8 @@ p.required { font-size:10px; text-align:right; }
 .error { color:#f00; font-weight:bold; }
 .notice { color:#ccc; }
 
+.messages,
+.messages ul { list-style:none !important; margin:0 !important; padding:0 !important; }
 .messages { width:100%; overflow:hidden; }
 .messages li { margin:0 0 10px; }
 .messages li li { margin:0 0 3px; }
@@ -239,6 +241,14 @@ dd.even { background-color:#f6f6f6; }
 
 /* Misc */
 .link-rss { background:url(../images/icon_rss.gif) 0 1px no-repeat; padding-left:18px; white-space:nowrap; }
+
+/* Noscript Notice */
+.noscript { border:1px solid #ddd; border-width:0 0 1px; background:#ffff90; font-size:12px; line-height:1.25; text-align:center; color:#2f2f2f; }
+.noscript .noscript-inner { width:1000px; margin:0 auto; padding:12px 0 12px; background:url(../images/i_notice.gif) 20px 50% no-repeat; }
+.noscript p { margin:0; }
+
+/* Demo Notice */
+.demo-notice { margin:0; padding:6px 10px; background:#d75f07; font-size:12px; line-height:1.15; text-align:center; color:#fff; }
 /* ======================================================================================= */
 
 

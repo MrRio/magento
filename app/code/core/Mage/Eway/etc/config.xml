@@ -137,6 +137,7 @@
                 <order_status>processing</order_status>
                 <cctypes>AE,VI,MC,DICL,JCB</cctypes>
                 <allowspecific>0</allowspecific>
+                <use_anti_fraud>0</use_anti_fraud>
             </eway_direct>
             <eway_shared>
                 <customer_id backend_model="adminhtml/system_config_backend_encrypted"/>

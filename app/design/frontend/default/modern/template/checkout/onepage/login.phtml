@@ -95,7 +95,7 @@
         <div class="button-set">
             <p class="required"><?php echo $this->__('* Required Fields') ?></p>
             <a href="<?php echo $this->getUrl('customer/account/forgotpassword') ?>" class="f-left"><?php echo $this->__('Forgot your password?') ?></a>
-            <a href="#" onclick="loginForm.submit()"><img src="<?php echo $this->getSkinUrl('images/btn_login.gif');?>" alt="<?php echo $this->__('Login') ?>" class="v-middle"/></a>
+            <a href="#" onclick="onepageLogin(this)"><img src="<?php echo $this->getSkinUrl('images/btn_login.gif');?>" alt="<?php echo $this->__('Login') ?>" class="v-middle"/></a>
         </div>
     </div>
 </div>
@@ -106,6 +106,14 @@
     $('login-password').observe('keypress', bindLoginPost);
     function bindLoginPost(evt){
         if (evt.keyCode == Event.KEY_RETURN) {
+            loginForm.submit();
+        }
+    }
+    function onepageLogin(link)
+    {
+        if(loginForm.validator && loginForm.validator.validate()){
+            link.href='javascript://';
+            link.onclick='javascript://';
             loginForm.submit();
         }
     }

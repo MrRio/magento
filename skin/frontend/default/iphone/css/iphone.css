@@ -258,6 +258,8 @@ p.required { text-align:right; }
 .error, .validation-advice { color:#df280a; }
 .notice {color:#e26703; }
 .success, .error { font-weight:bold; }
+.messages,
+.messages ul { list-style:none !important; margin:0 !important; padding:0 !important; }
 .messages { width:100%; overflow:hidden; }
 .error-msg, .success-msg, .notice-msg, .note-msg {
     margin-bottom:1em !important;
@@ -386,3 +388,35 @@ h4.legend { margin:1px 0 5px 0; }
 .customer-dob input { width:50px !important; }
 .customer-dob label.label-dob { font-weight:normal; color:#888; font-size:10px; }
 /********************************/
+
+/* Noscript Notice */
+.noscript { background:#ffff90; font-size:12px; line-height:1.25; text-align:center; color:#2f2f2f; }
+.noscript .noscript-inner { max-width:320px; margin:0 auto; padding:12px 0 12px; /*background:url(../images/i_notice.gif) 20px 50% no-repeat;*/ }
+.noscript p { margin:0; }
+
+/* For Demo store only */
+.demo-notice { margin:0; background:#d75f07; padding:5px 10px 6px 10px; color:#fff; line-height:1em; text-align:center; }
+
+/* Class: std - styles for admin-controlled content */
+.std ul,
+.std ol,
+.std dl,
+.std p,
+.std address,
+.std blockquote { margin:0 0 1em; padding:0; }
+.std ul { list-style:disc outside; padding-left:1.5em; }
+.std ol { list-style:decimal outside; padding-left:1.5em; }
+.std ul ul { list-style-type:circle; }
+.std ul ul,
+.std ol ol,
+.std ul ol,
+.std ol ul { margin:.5em 0; }
+.std dt { font-weight:bold; }
+.std dd { padding:0 0 0 1.5em; }
+.std blockquote { font-style:italic; padding:0 0 0 1.5em; }
+.std address { font-style:normal; }
+.std b,
+.std strong { font-weight:bold; }
+.std i,
+.std em { font-style:italic; }
+.std .a-top { text-align:right; }

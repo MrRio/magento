@@ -32,7 +32,7 @@
     <table cellspacing="0" class="generic-product-grid" id="new-products-list-table">
         <tr>
         <?php $i=0; foreach ($_products->getItems() as $_product): ?>
-            <?php if ($i>4): continue; endif; ?>
+            <?php if ($i>=4): continue; endif; ?>
         
             <td>
                 <p class="product-image">

@@ -42,7 +42,7 @@
                 </li>
             </ul>
             <p class="required a-right" style="padding-right:8px;"><?php echo $this->__('* Required Fields') ?></p>
-            <p class="a-right" style="padding-right:8px;"><button class="form-button" onclick="loginForm.submit()" ><span><?php echo $this->__('Login') ?></span></button></p>
+            <p class="a-right" style="padding-right:8px;"><button class="form-button" onclick="onepageLogin(this)" ><span><?php echo $this->__('Login') ?></span></button></p>
             <p class="a-center" style="padding-top:5px;"><a href="<?php echo $this->getUrl('customer/account/forgotpassword') ?>" class="left"><?php echo $this->__('Forgot your password?') ?></a></p>
         </form>
     </div>
@@ -109,4 +109,11 @@
 </div><div class="clear"></div>
 <script type="text/javascript">
     var loginForm = new VarienForm('login-form', true);
+    function onepageLogin(button)
+    {
+        if(loginForm.validator && loginForm.validator.validate()){
+            button.disabled = true;
+            loginForm.submit();
+        }
+    }
 </script>

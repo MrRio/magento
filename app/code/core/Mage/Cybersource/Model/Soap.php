@@ -167,7 +167,7 @@ class Mage_Cybersource_Model_Soap extends Mage_Payment_Model_Method_Cc
             $errorMsg = $this->_getHelper()->__('Credit card type is not allowed for this payment method');
         }
 
-								//validate credit card verification number        
+								//validate credit card verification number
         if ($errorMsg === false && $this->hasVerification()) {
             $verifcationRegEx = $this->getVerificationRegEx();
             $regExp = isset($verifcationRegEx[$info->getCcType()]) ? $verifcationRegEx[$info->getCcType()] : '';
@@ -191,7 +191,9 @@ class Mage_Cybersource_Model_Soap extends Mage_Payment_Model_Method_Cc
     protected function getSoapApi($options = array())
     {
         $wsdl = $this->getConfigData('test') ? self::WSDL_URL_TEST  : self::WSDL_URL_LIVE;
-        return new Mage_Cybersource_Model_Api_ExtendedSoapClient($wsdl, $options);
+        $_api = new Mage_Cybersource_Model_Api_ExtendedSoapClient($wsdl, $options);
+        $_api->setStoreId($this->getStore());
+        return $_api;
     }
 
     /**

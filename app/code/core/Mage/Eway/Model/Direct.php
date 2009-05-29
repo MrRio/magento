@@ -203,6 +203,13 @@ class Mage_Eway_Model_Direct extends Mage_Payment_Model_Method_Cc
         $xml .= "<ewayOption1>" . '' . "</ewayOption1>";
         $xml .= "<ewayOption2>" . '' . "</ewayOption2>";
         $xml .= "<ewayOption3>" . '' . "</ewayOption3>";
+        
+        
+        if (Mage::getStoreConfig('payment/eway_direct/use_anti_fraud')) {
+            $xml .= "<ewayCustomerIPAddress>". Mage::app()->getRequest()->getServer('REMOTE_ADDR') ."</ewayCustomerIPAddress>";
+            $xml .= "<ewayCustomerBillingCountry>". $billing->getCountryId() ."</ewayCustomerBillingCountry>";
+        }
+        
         $xml .= "</ewaygateway>";
 
         $resultArr = $this->call($xml);

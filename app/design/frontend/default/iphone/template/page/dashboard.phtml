@@ -36,7 +36,7 @@
 </head>
 <body <?php echo $this->getBodyClass()?'class="'.$this->getBodyClass().'"':'' ?>>
 <div class="wrapper">
-    <!--<p class="demo-notice"><span><?php echo $this->__('This is a demo store. Any orders placed through this store will not be honored or fulfilled.') ?></span></p>-->
+    <?php echo $this->getChildHtml('global_notices') ?>
         <div class="header">
             <?php echo $this->getChildHtml('header') ?>
         </div>
