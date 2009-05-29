@@ -35,6 +35,11 @@ class Mage_Compiler_ProcessController extends Mage_Adminhtml_Controller_Action
 {
     protected $_compiler = null;
 
+    public function preDispatch()
+    {
+        parent::preDispatch();
+    }
+
     /**
      * Get compiler process object
      *
@@ -49,6 +54,9 @@ class Mage_Compiler_ProcessController extends Mage_Adminhtml_Controller_Action
     }
     public function indexAction()
     {
+        Mage::getSingleton('adminhtml/session')->addError(
+            Mage::helper('compiler')->__('Compiler module is now in Beta (not to be used in production environment)')
+        );
         $this->loadLayout();
         $this->_setActiveMenu('system/tools');
         $this->renderLayout();
